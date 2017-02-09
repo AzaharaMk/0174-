@@ -37,6 +37,7 @@ public class Persona
         {
            caloriasIngeridas = comida.getCalorias();
            calorias =caloriasIngeridas + calorias;
+			listaComida.add(comida);
         }
         return caloriasIngeridas;
     }
@@ -84,7 +85,11 @@ public class Persona
         }
         return pregunta;
     }
-
+	/**
+		Método que imprime por pantalla y que devuelva el nombre de la comida más calórico ingerida hasta ahora por un usuario.
+		En caso de que la persona no haya comido nada el método infoma por pantalla de tal situación y devuelve null. 
+		En caso de que haya empate entre dos o más comidas, imprime y devuelve la última de ellas.
+	*/
 	public String getAlimentoMasCaloricoConsumido()
 	{
 		Comida comidaMasCalorica= null;
@@ -116,4 +121,13 @@ public class Persona
         }
         return nombreComida;
     }
+	
+	/**
+		Método que no devuelve nada y que imprime por pantalla la lista de comidas ingeridas ordenadas de mayor a menor valor calórico. 
+		En el listado debe mostrarse el nombre de la comida y su valor calórico.
+		En caso de que la persona no haya ingerido aun comida el método debe indicarlo por pantalla.
+	*/
+	public void verListadoComidasIngeridas ()
+	{
+	}
 }
