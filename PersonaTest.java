@@ -149,5 +149,11 @@ public class PersonaTest
     @Test
     public void PersonaTest()
     {
+        Persona persona3 = new Persona("persona3", false, 50, 165, 25);
+        assertEquals(269, persona1.comer(comida5));
+        assertEquals(1200, persona1.comer(comida2));
+        assertEquals(, persona1.getAlimentoMasCaloricoConsumido());
+        assertEquals(null, persona3.getAlimentoMasCaloricoConsumido());
+        assertEquals(Pizza, persona1.getAlimentoMasCaloricoConsumido());
     }
 }
