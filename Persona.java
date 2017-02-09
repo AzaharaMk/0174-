@@ -1,9 +1,11 @@
-
+import java.util.*;
 public class Persona
 {
     // calorias ingeridas por la persona
     private int caloriasMaximas;
     private int calorias;
+    private static final int LONGITUD_PALABRA = 3;
+    private String nombre;
 
     /**
      * Constructor for objects of class Persona
@@ -19,6 +21,7 @@ public class Persona
         {
             caloriasMaximas = (10 * peso) + (6 * altura) + (5 * edad) - 161;
         }
+        nombre = nombrePersona;
     }
 
     /**
@@ -45,6 +48,38 @@ public class Persona
         return calorias;
     }
     
-    
-    
+    /**
+     * Método que permite hacerle una pregunta a la persona. Si no ha sobrepasado su metabolismo basal, te contestará "SI" o "NO" (¡en mayúsculas!) 
+     * dependiendo de si la pregunta tiene una longitud (es decir, el número de letras de la misma) divisible por 3 o no, respectivamente.
+     * En caso de que la persona ya haya sobrepasado el metabolismo basal o en el caso de que tu pregunta contenga el nombre de la persona,
+     * responderá con la misma pregunta que le has hecho pero gritando (es decir, el mismo texto de la pregunta pero en mayúsculas) indiferentemente 
+     * de la longitud de a pregunta.
+     * Admite un único parámetro y debe devolver la respuesta además de imprimirla por pantalla.
+     */
+    public String contestar(String pregunta)
+    {
+        boolean respuesta = false;
+        
+        if(caloriasMaximas < calorias || pregunta.contains(nombre))
+        {
+            System.out.println(pregunta.toUpperCase());
+            pregunta = pregunta.toUpperCase();
+            respuesta = true;
+        }
+        
+        if (caloriasMaximas >= calorias && !respuesta)
+        {
+            if(pregunta.length() % LONGITUD_PALABRA == 0)
+            {
+                System.out.println("SI");
+                pregunta = "SI";
+            }
+                else
+                {
+                    System.out.println("NO");
+                    pregunta= "NO";
+                }
+        }
+        return pregunta;
+    }
 }
