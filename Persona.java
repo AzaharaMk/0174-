@@ -6,6 +6,7 @@ public class Persona
     private int calorias;
     private static final int LONGITUD_PALABRA = 3;
     private String nombre;
+	private ArrayList <Comida> listaComida;
 
     /**
      * Constructor for objects of class Persona
@@ -22,6 +23,7 @@ public class Persona
             caloriasMaximas = (10 * peso) + (6 * altura) + (5 * edad) - 161;
         }
         nombre = nombrePersona;
+		listaComida = new ArrayList();
     }
 
     /**
@@ -81,5 +83,37 @@ public class Persona
                 }
         }
         return pregunta;
+    }
+
+	public String getAlimentoMasCaloricoConsumido()
+	{
+		Comida comidaMasCalorica= null;
+		String nombreComida = null;
+		for (Comida comida : listaComida)
+		{
+			if(comidaMasCalorica == null)
+			{
+				comidaMasCalorica = comida;
+				nombreComida = comidaMasCalorica.getNombreComida();
+			}
+			else 
+			{
+                if (comidaMasCalorica.getCalorias() <= comida.getCalorias()) 
+				{
+                    comidaMasCalorica = comida;
+                    nombreComida = comidaMasCalorica.getNombreComida();
+                }
+            }
+        }
+
+        if (comidaMasCalorica == null) 
+		{
+            System.out.println("Aún no ha comido nada.");
+        }
+        else 
+		{
+            System.out.println(nombreComida);
+        }
+        return nombreComida;
     }
 }

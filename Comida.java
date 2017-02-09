@@ -2,6 +2,7 @@
 public class Comida
 {
     private int caloriasIngeridas;
+    private String nombreDeComida;
 
     /**
      * Constructor for objects of class Comida
@@ -10,6 +11,7 @@ public class Comida
     {
         // initialise instance variables
         caloriasIngeridas= cantidadCalorias;
+        nombreDeComida = nombreComida;
     }
 
      /**
@@ -19,5 +21,10 @@ public class Comida
     public int getCalorias()
     {
         return caloriasIngeridas;
+    }
+    
+    public String getNombreComida()
+    {
+        return nombreDeComida;
     }
 }
